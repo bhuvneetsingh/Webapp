@@ -1,0 +1,48 @@
+﻿
+@{
+	ViewBag.Title = "LogOut";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div class="col-md-12">
+	<img src="~/Content/Images/logout.png" width="100%" height="260" title="Welcome" />
+</div>
+<p>.</p>
+<h3> Are you Sure you want to logout?</h3>
+<button onclick="window.location.href='http://localhost:50953/Home/index';">
+	Logout
+</button>
+
+@section scripts{
+<script type="text/javascript">
+
+	function disableBackButtonAllBrowsers() {
+
+		window.history.forward()
+
+	};
+
+
+	window.onload = disableBackButtonAllBrowsers();
+
+	window.onpageshow = function (evts) {
+
+		if (evts.persisted) {
+
+			disableBackButtonAllBrowsers();
+
+		}
+
+	};
+
+
+
+	window.onunload = function () {
+
+		void (0)
+
+	};
+
+</script>
+	}
+	

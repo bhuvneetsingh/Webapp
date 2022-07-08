@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/bootstrap.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					<img alt="Brand" src="~/Content/Images/logo.png" height="20" width="20">
+				</a>
+				@Html.ActionLink("The  Music Player", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav"></ul>
+			</div>
+		
+	</div>
+
+
+
+	<div class="body-content">
+		@RenderBody()
+		<hr />
+
+	</div>
+
+	<div class="well" style="background-color:#000000;color:wheat;margin-bottom:0px">
+
+		<div class="col-md-5" style="margin-left:20px">
+
+			<h3><span class="glyphicon glyphicon-map-marker"></span> Address</h3>
+			<ul class="list-group list-unstyled">
+
+				<li>ABC Ltd.</li>
+				<li>XYZ Area</li>
+				<li>DEF City</li>
+			</ul>
+		</div>
+
+
+
+		<div class="col-md-6">
+
+			<h3><span class="glyphicon glyphicon-phone"></span> Contact Us</h3>
+			<ul class="list-group list-unstyled">
+
+				<li><span class="glyphicon glyphicon-cloud"></span> bhuvneetsingh022@gmail.com  </li>
+				<li><span class="glyphicon glyphicon-phone"></span> +91 9813114160</li>
+				<li><span class="glyphicon glyphicon-globe"></span> www.xyz.com </li>
+
+			</ul>
+		</div>
+
+		@*<div class="col-lg-3">
+
+			<h3><span class="glyphicon glyphicon-briefcase"></span> Career</h3>
+			<ul class="list-group list-unstyled">
+
+				<li><span class="glyphicon glyphicon-"></span> <a href="#">Musical & Dance</a> </li>
+				<li><span class="glyphicon glyphicon-book"></span>  <a href="#">Summar training</a></li>
+				<li><span class="glyphicon glyphicon-globe"></span>    <a href="#">Website Designing</a></li>
+
+			</ul>
+		</div>*@
+
+		<div style="clear:both"></div>
+
+
+	</div>
+
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
+</body>
+</html>

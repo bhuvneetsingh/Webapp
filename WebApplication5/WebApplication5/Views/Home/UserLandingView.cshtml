@@ -1,0 +1,69 @@
+﻿@using System;
+@using System.IO;
+@model IEnumerable<MYapplication.Models.Song>
+
+@{
+	ViewBag.Title = "UserLandingView";
+}
+<div class="col-md-12">
+	<img src="~/Content/Images/List.png" width="100%"height="260" title="Welcome" />
+</div>
+<h5>.</h5>
+<button onclick="window.location.href='http://localhost:50953/Home/create';">
+	Add
+</button>
+@*<button onclick="window.location.href='http://localhost:50953/Home/edit';">
+	Edit
+</button>
+<button onclick="window.location.href='http://localhost:50953/Home/delete';">
+	Delete
+</button>*@
+<h3></h3>
+
+<table class=" container table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.SongName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Singer)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+	<tr>
+		
+		<td>
+			@Html.DisplayFor(modelItem => item.SongName)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Singer)
+		</td>
+		<td>
+			@Html.ActionLink("Play", "GetSong", new { id = item.SongName }) |
+			@Html.ActionLink("Edit", "Edit", new { id = item.SongName }) |
+			@Html.ActionLink("Delete", "Delete", new { id = item.SongName })
+
+			@*<button id=item.SongName onclick="playSong() "></button>*@
+</tr>
+	}
+
+</table>
+<button onclick="window.location.href='http://localhost:50953/Home/EndPage';">
+	Logout
+</button>
+
+@section scripts{
+	<script type="text/javascript">
+		function playSong() {
+
+			var audio = new Audio('http://localhost:50953/Home/GetSong');
+			audio.play();
+
+		}
+		
+
+	</script>
+}

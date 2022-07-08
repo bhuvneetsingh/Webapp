@@ -1,0 +1,77 @@
+﻿@model MYapplication.Models.Login_Page
+@{
+	ViewBag.Title = "Login";
+}
+<div class="col-md-12">
+	<img src="~/Content/Images/Login.png" width="100%" height="260" title="Welcome" />
+</div>
+<p>.</p>
+
+
+<html lang="en">
+<head>
+	<style type="text/css">
+		.bs-example {
+			height: 240px;
+		}
+
+		.centerlook {
+			padding-left: 400px;
+			font-weight: bold;
+			width: 1000px;
+		}
+
+		.error {
+			padding-left: 400px;
+			font-weight: bold;
+			width: 1000px;
+			color: red;
+		}
+
+		.loginbtn {
+			padding-left: 500px;
+		}
+	</style>
+
+</head>
+<body>
+
+	@using (Html.BeginForm())
+	{
+		
+	<div class="container bs-example"  style="border:2px solid gray;">
+
+		<div class="form-group centerlook">
+			<h1> Login </h1>
+		</div>
+		<div class="form-group centerlook">
+			<label>User Id: </label>
+			@Html.EditorFor(model => model.UserId)*
+			@Html.ValidationMessageFor(model => model.UserId)
+		</div>
+		<div class="form-group centerlook">
+			<label>Password: </label>
+			@Html.EditorFor(model => model.Password)*
+			@Html.ValidationMessageFor(model => model.Password)
+
+		</div>
+		<div class="form-group error">
+
+			@if (@ViewBag.NotValidUser != null)
+			{
+
+				<label> @ViewBag.NotValidUser</label>
+			}
+		</div>
+
+		<div class="loginbtn">
+
+			<input type="submit" value="Login" class="btn btn-primary" />
+
+		</div>
+	</div>
+	}
+</body>
+</html>
+
+

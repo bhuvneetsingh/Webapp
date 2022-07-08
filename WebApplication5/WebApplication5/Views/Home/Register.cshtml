@@ -1,0 +1,89 @@
+﻿@model MYapplication.Models.register
+@{
+	ViewBag.Title = "Register";
+}
+<div class="col-md-12">
+	<img src="~/Content/Images/Register.png" width="100%"height="260" title="Welcome" />
+</div>
+<p>.</p>
+<h2>@ViewBag.Title.</h2>
+
+<html lang="en">
+<head>
+	<style type="text/css">
+		.bs-example {
+			height: 260px;
+		}
+
+		.centerlook {
+			padding-left: 400px;
+			font-weight: bold;
+			width: 1000px;
+		}
+
+		.error {
+			padding-left: 400px;
+			font-weight: bold;
+			width: 1000px;
+			color: red;
+		}
+
+		.registerbtn {
+			padding-left: 500px;
+		}
+	</style>
+
+</head>
+<body>
+
+	@using (Html.BeginForm())
+	{
+		<div class="bs-example" style="border:2px solid gray;">
+
+			<div class="form-group centerlook">
+			</div>
+			<div class="form-group centerlook">
+				<label>User Id: </label>
+				@Html.EditorFor(model => model.UserId)*
+				@Html.ValidationMessageFor(model => model.UserId)
+			</div>
+			<div class="form-group centerlook">
+				<label>First Name: </label>
+				@Html.EditorFor(model => model.FirstName)*
+				@Html.ValidationMessageFor(model => model.FirstName)
+			</div>
+			<div class="form-group centerlook">
+				<label>Last Name: </label>
+				@Html.EditorFor(model => model.LastName)*
+				@Html.ValidationMessageFor(model => model.LastName)
+			</div>
+			<div class="form-group centerlook">
+				<label>Password: </label>
+				@Html.EditorFor(model => model.Password)*
+				@Html.ValidationMessageFor(model => model.Password)
+
+			</div>
+			<div class="form-group error">
+				@if (@ViewBag.Failedcount != null)
+				{
+
+					<label> Failed Attempt count is: @ViewBag.Failedcount</label>
+				}
+
+				@if (@ViewBag.NotValidUser != null)
+				{
+
+					<label> @ViewBag.NotValidUser</label>
+				}
+			</div>
+			<div class="registerbtn">
+
+				<input type="submit" value="Register" class="btn btn-primary" />
+
+			</div>
+		</div>
+
+	}
+</body>
+</html>
+
